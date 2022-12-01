@@ -338,14 +338,15 @@ insert into suscripcion values (1,7,0,'2023-01-01',3,800.00)
 /*Peliculas Disponibles*/
 
 insert into peliculasdisponibles values (1,2)
-insert into peliculasdisponibles values (2,1)
+insert into peliculasdisponibles values (1,1)
 insert into peliculasdisponibles values (1,3)
 insert into peliculasdisponibles values (1,4)
 insert into peliculasdisponibles values (1,5)
-insert into peliculasdisponibles values (3,6)
-insert into peliculasdisponibles values (13,7)
+insert into peliculasdisponibles values (1,6)
+insert into peliculasdisponibles values (1,7)
 insert into peliculasdisponibles values (1,8)
 insert into peliculasdisponibles values (1,9)
-
+insert into peliculasdisponibles values (3,10)
+insert into peliculasdisponibles values (3,11)
 
 select * from peliculasdisponibles
