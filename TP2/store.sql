@@ -5,25 +5,32 @@ procedimiento almacenado correspondiente, y proponga los criterios a tener en cu
 pasar un plan de activo a inactivo.
  * 
  */
-CREATE PROCEDURE pago_mensuales AS
-update suscripcion set Estado=1  WHERE CAST(Fecha_Vto AS date) > CONVERT(DATE, GETDATE())
+
+
+use webapp;
+CREATE PROCEDURE procedure_pagos_mensuales AS
+update suscripcion set Estado=1  WHERE CAST(suscripcion.Fecha_Vto AS date) > CONVERT(DATE, GETDATE())
 /*ejecuto*/
-EXEC pago_mensuales
+EXEC procedure_pagos_mensuales
 
 /*Cree un procedimiento almacenado que reciba como par ́ametros un usuario y una contrase ̃na,
 y devuelva 1 si el login es correcto (es decir, coincide usuario, contrase ̃na, y el plan est ́a activo)
 y 0 en cualquier otro caso.
  * */
 
-
-CREATE PROCEDURE login_usuario_p @usuario VARCHAR, @clave VARCHAR 
+use webapp;
+CREATE PROCEDURE procedurelo @usuario VARCHAR, @clave VARCHAR 
 AS 
-IF (SELECT count(*) FROM usuario INNER JOIN suscripcion ON  suscripcion.Id_Usuario = usuario.id
-WHERE Usuario= @usuario AND Clave = @clave ) > 0 BEGIN
-	return 1
+IF (SELECT count(*) FROM usuario INNER JOIN suscripcion ON  suscripcion.Id_Usuario = usuario.id WHERE Usuario= @usuario AND Clave = @clave
+AND ( CAST(suscripcion.Fecha_Vto AS date) > CONVERT(DATE, GETDATE())
+)) > 0 
+	BEGIN
+		SELECT  1
 	END
 ELSE
-BEGIN
-	return 0
-END
-EXEC login_usuario_p 'daniel', 'pppp';
+	BEGIN
+		SELECT 0
+	END
+/*EJECUTO EL PROCEDIMIENTO
+ * */
+EXEC procedure_l 'daniel', 'pppp';
