@@ -304,12 +304,48 @@ insert into compras(Precio,DNI,Id_Funcion,Id_Butaca) values (4.10,41735423,18,17
 insert into planes values ('Gratuito');
 insert into planes values ('Premium');
 insert into planes values ('Familiar');
-/*USUARIOS*/
+select * from planes
 
+/*USUARIOS*/
 insert into usuario values ('Ulises','ulisesnemeth@gmail.com','ulisesnemeth','pass1234',1)
-insert into usuario values ('Carlos','carlos@gmail.com','carlos','pass12345',1)
+insert into usuario values ('Carlos','carlos@gmail.com','carlos','pass12345',2)
+insert into usuario values ('Jorge','jorge20@gmail.com','jorgeelmejor','pass1234',3)
+insert into usuario values ('Juan','juan52@gmail.com','juancito','pass12345',4)
+insert into usuario values ('Javier','javierCABJ@gmail.com','javi_el_mejor','pass1234',5)
+insert into usuario values ('Diego','diego521@gmail.com','diegoMaradona','pass12345',6)
+insert into usuario values ('Richard','richy@gmail.com','ricardoo','pass1234',7)
+
+
 /*SUSCRIPCIONES*/
 
 insert into suscripcion values (1,1,1,'2022-12-15',2,600.00)
+insert into suscripcion values (1,2,0,'2022-12-19',2,600.00)
+insert into suscripcion values (1,3,1,'2022-12-05',2,600.00)
+select * from suscripcion
+
+insert into suscripcion values (2,4,1,'2022-12-13',1,00.00)
+insert into suscripcion values (1,5,0,'2022-12-20',1,00.00)
+
+
+insert into suscripcion values (1,6,1,'2022-12-08',3,800.00)
+insert into suscripcion values (1,7,0,'2023-01-01',3,800.00)
+
+
+
+
+
+
 /*Peliculas Disponibles*/
+
 insert into peliculasdisponibles values (1,2)
+insert into peliculasdisponibles values (2,1)
+insert into peliculasdisponibles values (1,3)
+insert into peliculasdisponibles values (1,4)
+insert into peliculasdisponibles values (1,5)
+insert into peliculasdisponibles values (3,6)
+insert into peliculasdisponibles values (13,7)
+insert into peliculasdisponibles values (1,8)
+insert into peliculasdisponibles values (1,9)
+
+
+select * from peliculasdisponibles

@@ -1,0 +1,20 @@
+
+Determine si las relaciones presentadas en la resolución del Trabajo Práctico 1 están en 3FN.
+En caso afirmativo, justificar por qué. En caso negativo, explicar por qué no lo están, y realizar
+las modificaciones necesarias para que sí estén en 3FN. Incluya el diagrama entidad-relación
+original, y el modificado (en caso de que haya hecho alguna modificación).
+
+
+
+En la version de nuestro diagrama en el TP1 podemos decir que ya estaba en segunda forma normal.
+Esto se comprueba ya que cada atributo tiene valor atómico para cada tupla, por lo tanto se comprueba
+que está en primera forma normal. 
+Luego tambien se puede probar que todos los atributos no clave son completamente dependientes de la clave.
+Por lo tanto cumple con las condiciones sde segunda forma normal.
+
+Para que el diagrama cumpla con la tercer forma normal debería cumplirse ademas que todos los
+atributos no clave dependen de manera no transitiva de la clave primaria.
+
+En el unico caso del diagrama donde esto no se cumple es en la tabla de Peliculas, donde la descripcion
+del genero depende de forma transitiva, por lo tanto creamos una tabla aparte para la descripcion del genero.
+Quedando de esta manera todo el diagrama en tercera forma normal.
