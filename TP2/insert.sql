@@ -301,6 +301,7 @@ insert into compras(Precio,DNI,Id_Funcion,Id_Butaca) values (4.10,41735423,2,141
 insert into compras(Precio,DNI,Id_Funcion,Id_Butaca) values (4.10,41735423,18,170);
 
 /*PLANES*/
+insert into planes values ('Gratuito');
 insert into planes values ('Premium');
 insert into planes values ('Familiar');
 /*USUARIOS*/
