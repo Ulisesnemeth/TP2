@@ -10,6 +10,7 @@ pasar un plan de activo a inactivo.
 use webapp;
 CREATE PROCEDURE procedure_pagos_mensuales AS
 update suscripcion set Estado=1  WHERE CAST(suscripcion.Fecha_Vto AS date) > CONVERT(DATE, GETDATE())
+update suscripcion set Estado=0  WHERE CAST(suscripcion.Fecha_Vto AS date) < CONVERT(DATE, GETDATE())
 /*ejecuto*/
 EXEC procedure_pagos_mensuales
 
@@ -19,7 +20,7 @@ y 0 en cualquier otro caso.
  * */
 
 use webapp;
-CREATE PROCEDURE procedurelo @usuario VARCHAR, @clave VARCHAR 
+CREATE PROCEDURE procedurelo @usuario VARCHAR(40), @clave VARCHAR(40) 
 AS 
 IF (SELECT count(*) FROM usuario INNER JOIN suscripcion ON  suscripcion.Id_Usuario = usuario.id WHERE Usuario= @usuario AND Clave = @clave
 AND ( CAST(suscripcion.Fecha_Vto AS date) > CONVERT(DATE, GETDATE())
