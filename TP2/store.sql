@@ -1,10 +1,7 @@
-/*
- * Suponga que se desea verificar mensualmente si los planes de cada uno de los usuarios estan
+/*Suponga que se desea verificar mensualmente si los planes de cada uno de los usuarios estan
 al d ıa con los pagos y, en funci ́on de eso, actualizar el plan como activo o inactivo. Cree el
 procedimiento almacenado correspondiente, y proponga los criterios a tener en cuenta para
-pasar un plan de activo a inactivo.
- * 
- */
+pasar un plan de activo a inactivo. */
 
 
 use webapp;
@@ -16,8 +13,7 @@ EXEC procedure_pagos_mensuales
 
 /*Cree un procedimiento almacenado que reciba como par ́ametros un usuario y una contrase ̃na,
 y devuelva 1 si el login es correcto (es decir, coincide usuario, contrase ̃na, y el plan est ́a activo)
-y 0 en cualquier otro caso.
- * */
+y 0 en cualquier otro caso.*/
 
 use webapp;
 CREATE PROCEDURE procedurelo @usuario VARCHAR(40), @clave VARCHAR(40) 
@@ -34,4 +30,4 @@ ELSE
 	END
 /*EJECUTO EL PROCEDIMIENTO
  * */
-EXEC procedure_l 'daniel', 'pppp';
+EXEC procedurelo 'ulisesnemeth', 'pass1234';
