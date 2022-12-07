@@ -31,3 +31,27 @@ ELSE
 /*EJECUTO EL PROCEDIMIENTO
  * */
 EXEC procedurelo 'ulisesnemeth', 'pass1234';
+
+use webapp;
+CREATE proc cargarpelicula @nombre VARCHAR(40), @genero VARCHAR(40), @esATP BIT, @tieneSubtitulos BIT
+as 
+if (select count(*) from peliculas WHERE Nombre = @nombre)>0
+begin
+	Select 'La pelicula ya está en la lista'
+end
+else
+	begin
+	if (select count(Id) from genero WHERE Descripcion = @genero)>0
+		begin
+			set @genero = (select top(1) Id from genero WHERE Descripcion = @genero)
+			insert into peliculas values (@genero,@nombre,@esATP,@tieneSubtitulos)
+		end
+	else
+		begin
+			insert into genero values (@genero)
+			set @genero = (select Id from genero WHERE Descripcion = @genero)
+			insert into peliculas values (@genero,@nombre,@esATP,@tieneSubtitulos)
+		end
+end
+
+EXEC cargarpelicula @nombre = 'El Conjuro 11', @genero = 'Terror', @esATP = 0, @tieneSubtitulos = 1;
